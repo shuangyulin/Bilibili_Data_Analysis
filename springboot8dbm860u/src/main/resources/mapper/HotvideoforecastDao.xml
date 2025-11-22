@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.HotvideoforecastDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.HotvideoforecastEntity" id="hotvideoforecastMap">
+        <result property="title" column="title"/>
+        <result property="duration" column="duration"/>
+        <result property="author" column="author"/>
+        <result property="typename" column="typename"/>
+        <result property="coin" column="coin"/>
+        <result property="playcount" column="playcount"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.HotvideoforecastVO" >
+		SELECT * FROM hotvideoforecast  hotvideoforecast         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.HotvideoforecastVO" >
+		SELECT  hotvideoforecast.* FROM hotvideoforecast  hotvideoforecast 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.HotvideoforecastView" >
+
+		SELECT  hotvideoforecast.* FROM hotvideoforecast  hotvideoforecast 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.HotvideoforecastView" >
+		SELECT * FROM hotvideoforecast  hotvideoforecast <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+
+</mapper>
